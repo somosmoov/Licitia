@@ -1,3 +1,4 @@
+# funções para recuperar API_KEY e outrs secrets da Key Vault da Azure
 import os
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
