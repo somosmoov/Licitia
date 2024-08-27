@@ -154,7 +154,7 @@ for uploaded_file in uploaded_files:
     st.write("Tipo de conteúdo:", uploaded_file.type)
     st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
     document = trata_arquivo(uploaded_file)
-    st.write(document)
+    st.write(type(document))
              
                 
     # Chunking
