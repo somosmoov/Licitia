@@ -163,6 +163,6 @@ for uploaded_file in uploaded_files:
     texts = text_splitter.split_text(document)
     metadata = []
     for i in range(0,len(texts)):
-        metadata.append({"path":file})
+        metadata.append({"path":uploaded_file.name})
         #qdrant.add_texts(texts,metadatas=metadata)
     st.write("numero de chunks: ",len(texts))
