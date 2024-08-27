@@ -154,10 +154,10 @@ for uploaded_file in uploaded_files:
     st.write("Tipo de conteúdo:", uploaded_file.type)
     st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
     document = trata_arquivo(uploaded_file)
-    st.write(type(document))
+    #st.write(type(document))
     #st.write(document.keys())
-             
-                
+    st.write(document)
+            
     # Chunking
     text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
     texts = text_splitter.split_text(document)
