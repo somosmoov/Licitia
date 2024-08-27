@@ -9,3 +9,4 @@ openpyxl
 azure-identity 
 azure-keyvault-secrets
 langchain_text_splitters
+tiktoken
