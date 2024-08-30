@@ -156,7 +156,7 @@ for uploaded_file in uploaded_files:
     document = trata_arquivo(uploaded_file)
     #st.write(type(document))
     #st.write(document.keys())
-    st.write(document)
+    #st.write(document)
             
     # Chunking
     text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
