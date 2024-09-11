@@ -36,7 +36,7 @@ question = " faça um sumario do edital indicando apenas o contratante e o objet
 if st.session_state.uploaded_file:
     # Process the uploaded file and question.
     #document = uploaded_file.read().decode()
-    st.write(" Edital em análise: ", st.session_state.file
+    st.write(" Edital em análise: ", st.session_state.file_name)
     document = st.session_state.doc
     messages = [
         {
