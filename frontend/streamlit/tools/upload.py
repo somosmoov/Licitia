@@ -154,7 +154,7 @@ uploaded_file = st.file_uploader("Carregue o Edital a ser analisado!", type=("pd
 #st.write("Nome do arquivo:", uploaded_file.name)
 #st.write("Tipo de conteúdo:", uploaded_file.type)
 #st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
-if uploaded_file and question:
+if uploaded_file:
     document = trata_arquivo(uploaded_file)
     text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
     texts = text_splitter.split_text(document)
