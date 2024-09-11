@@ -48,22 +48,30 @@ if st.session_state.uploaded_file:
             }
         ]
         #st.write(document)
-        # Generate an answer using the OpenAI API.
+        # Configuração para a streaming
         stream = client.chat.completions.create(
             #model="gpt-3.5-turbo",
             model="gpt-4o-mini",
             messages=messages,
             stream=True,
         )
-        # Stream the response to the app using `st.write_stream`.
-        st.session_state.summary = stream
-        st.write_stream(st.session_state.summary)
+        # Inicializando o resumo na sessão
+        if 'summary' not in st.session_state:
+            st.session_state.summary = ""
+        # Iterando sobre a stream e acumulando as mensagens
+        for message in stream:
+            st.session_state.summary += message['choices'][0]['delta']
+            st.write(st.session_state.summary)
         st.session_state.file_summary = st.session_state.file_name
+        # Stream the response to the app using `st.write_stream`.
+        #st.session_state.summary = stream
+        #st.write_stream(st.session_state.summary)
+        #st.session_state.file_summary = st.session_state.file_name
         
     elif st.session_state.file_summary == st.session_state.file_name:
         #st.write("uploaded_file", st.session_state.uploaded_file)
         st.write("Arquivo sumarizado",st.session_state.file_summary)
-        st.write_stream(st.session_state.summary)
+        st.write(st.session_state.summary)
     else:
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
@@ -81,9 +89,16 @@ if st.session_state.uploaded_file:
             messages=messages,
             stream=True,
         )
+        # Inicializando o resumo na sessão
+        st.session_state.summary = ""
+        # Iterando sobre a stream e acumulando as mensagens
+        for message in stream:
+            st.session_state.summary += message['choices'][0]['delta']
+            st.write(st.session_state.summary)
+        st.session_state.file_summary = st.session_state.file_name      
         # Stream the response to the app using `st.write_stream`.
-        st.session_state.summary = stream
-        st.write_stream( st.session_state.summary)
-        st.session_state.file_summary = st.session_state.file_name        
+        #st.session_state.summary = stream
+        #st.write_stream(st.session_state.summary)
+        #st.session_state.file_summary = st.session_state.file_name        
 else: 
     st.write(" Carregue o Edital para análise")
