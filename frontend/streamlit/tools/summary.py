@@ -1,4 +1,5 @@
 import streamlit as st
+import openai
 from openai import OpenAI
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
