@@ -19,8 +19,8 @@ login_page = st.Page(login, title="Log in", icon=":material/login:")
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 
 
-bugs = st.Page("reports/bugs.py", title="Log de erros", icon=":material/bug_report:")#, default=True)
-alerts = st.Page("reports/alerts.py", title="Alertas", icon=":material/notification_important:")#, default=True)
+#bugs = st.Page("reports/bugs.py", title="Log de erros", icon=":material/bug_report:")#, default=True)
+#alerts = st.Page("reports/alerts.py", title="Alertas", icon=":material/notification_important:")#, default=True)
 
 upload = st.Page("tools/upload.py", title="Carrega Edital", icon=":material/upload:")#, default=True)
 search = st.Page("tools/search.py", title="Pesquisas", icon=":material/search:")#, default=True)
