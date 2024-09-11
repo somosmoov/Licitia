@@ -33,31 +33,31 @@ client = OpenAI(api_key=openai_api_key)
 #    disabled=not uploaded_file,
 #)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
-if st.session_state.uploaded_file & ("file_summary" not in st.session_state):
-    # Process the uploaded file and question.
-    #document = uploaded_file.read().decode()
-    st.write(" Edital em análise: ", st.session_state.file_name)
-    document = st.session_state.doc
-    messages = [
-        {
-            "role": "user",
-            "content": f"Here's a document: {document} \n\n---\n\n {question}",
-        }
-    ]
-    #st.write(document)
-    # Generate an answer using the OpenAI API.
-    stream = client.chat.completions.create(
-        #model="gpt-3.5-turbo",
-        model="gpt-4o-mini",
-        messages=messages,
-        stream=True,
-    )
-
-    # Stream the response to the app using `st.write_stream`.
-    st.write_stream(stream)
-    st.session_state.file_summary = st.session_state.file_name
-    st.session_state.summary = stream
-elif st.session_state.uploaded_file & (st.session_state.file_summary == st.session_state.file_name):
+if st.session_state.uploaded_file:
+    if "file_summary" not in st.session_state:
+        # Process the uploaded file and question.
+        #document = uploaded_file.read().decode()
+        st.write(" Edital em análise: ", st.session_state.file_name)
+        document = st.session_state.doc
+        messages = [
+            {
+                "role": "user",
+                "content": f"Here's a document: {document} \n\n---\n\n {question}",
+            }
+        ]
+        #st.write(document)
+        # Generate an answer using the OpenAI API.
+        stream = client.chat.completions.create(
+            #model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
+            messages=messages,
+            stream=True,
+        )
+        # Stream the response to the app using `st.write_stream`.
+        st.write_stream(stream)
+        st.session_state.file_summary = st.session_state.file_name
+        st.session_state.summary = stream
+elif st.session_state.file_summary == st.session_state.file_name)
      st.write_stream(stream)
 else: 
     st.write(" Carregue o Edital para análise")
