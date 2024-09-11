@@ -146,7 +146,7 @@ st.markdown("## 📝 Carregue o Edital a ser analisado")
 if 'uploaded_file' not in st.session_state:
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
-if uploaded_file:
+#if uploaded_file:
     st.write("Nome do arquivo:", uploaded_file.name)
     document = trata_arquivo(uploaded_file)
     text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
