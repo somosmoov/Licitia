@@ -81,8 +81,8 @@ if st.session_state.uploaded_file:
             stream=True,
         )
         # Stream the response to the app using `st.write_stream`.
-        st.write_stream(stream)
-        st.session_state.file_summary = st.session_state.file_name
         st.session_state.summary = stream
+        st.write_stream( st.session_state.summary)
+        st.session_state.file_summary = st.session_state.file_name        
 else: 
     st.write(" Carregue o Edital para análise")
