@@ -71,9 +71,9 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
-        stream = openai.Completion.create(
+        stream = client.completions.create(
             #model="gpt-3.5-turbo",
-            model="gpt-4-0613",
+            model="gpt-4o-mini",
             messages=messages,
             stream=True,
         )
