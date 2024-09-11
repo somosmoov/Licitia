@@ -150,9 +150,9 @@ uploaded_file = st.file_uploader("Selecione os Documentos a serem analisados!",
                                   accept_multiple_files= False) # True)
 
 # Imprimir informações sobre o arquivo
-st.write("Nome do arquivo:", uploaded_file.name)
-st.write("Tipo de conteúdo:", uploaded_file.type)
-st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
+#st.write("Nome do arquivo:", uploaded_file.name)
+#st.write("Tipo de conteúdo:", uploaded_file.type)
+#st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
 document = trata_arquivo(uploaded_file)
     #st.write(type(document))
     #st.write(document.keys())
