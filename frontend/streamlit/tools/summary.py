@@ -1,5 +1,4 @@
 import streamlit as st
-import openai
 from openai import OpenAI
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
@@ -8,8 +7,7 @@ from azure.keyvault.secrets import SecretClient
 # Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
 #openai_api_key = st.text_input("OpenAI API Key", type="password")
-def setup_openai_api():
-    openai.api_key = st.secrets["OPENAI_KEY"]
+openai.api_key = st.secrets["OPENAI_KEY"]
 
 # Defina a URL do seu Key Vault
 #key_vault_url = KEY_VAULT_URL
@@ -27,15 +25,8 @@ def setup_openai_api():
 # Create an OpenAI client.
 #client = OpenAI(api_key=retrieved_secret.value)
 # Chamada da função de configuração
-setup_openai_api()
-#client = OpenAI(api_key=openai_api_key)
-
-# Ask the user for a question via `st.text_area`.
-#question = st.text_input(
-#    "Faça um questionamento",
-#    placeholder="Por exemplo: Pode fornecer um sumário?",
-#    disabled=not uploaded_file,
-#)
+#setup_openai_api()
+client = OpenAI(api_key=openai_api_key)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
@@ -54,17 +45,20 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Configuração para a streaming
-        stream = openai.Completion.create(
-            model="gpt-4-0613",
+        completion = client.completions.create(
+            model="gpt-4o-mini",
             messages=messages,
             stream=True,
         )
+        
         # Inicializando o resumo na sessão
-         # Inicializando o resumo na sessão
         st.session_state.summary = ""
-
+        st.write(completion.choices[0].text)
+        st.write(dict(completion).get('usage'))
+        st.write(completion.model_dump_json(indent=2))
+        
         # Iterando sobre a stream e acumulando as mensagens
-        for chunk in stream:
+        for chunk in completion:
             if 'choices' in chunk and len(chunk['choices']) > 0:
                 delta = chunk['choices'][0]['delta'].get('content', '')
                 st.session_state.summary += delta
