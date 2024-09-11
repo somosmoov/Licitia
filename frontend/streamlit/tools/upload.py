@@ -149,7 +149,7 @@ st.markdown("## 📝 Carregue o Edital a ser analisado")
 #                                  type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"),
 #                                  accept_multiple_files= False) # True)
 # Let the user upload a file via `st.file_uploader`.
-uploaded_file = st.file_uploader( type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
+uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
 # Imprimir informações sobre o arquivo
 
 #st.write("Tipo de conteúdo:", uploaded_file.type)
