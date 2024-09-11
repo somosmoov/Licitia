@@ -143,8 +143,8 @@ def get_question():
 # Streamlit UI
 #st.title("📝 Selecione os documentos")
 st.markdown("## 📝 Carregue o Edital a ser analisado")
-#if 'uploaded_file' not in st.session_state:
-    # Let the user upload a file via `st.file_uploader`.
+if 'uploaded_file' in st.session_state:
+    uploaded_file = st.session_state.uploaded_file  # Let the user upload a file via `st.file_uploader`.
 uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
 if uploaded_file:
     st.write("Nome do arquivo:", uploaded_file.name)
