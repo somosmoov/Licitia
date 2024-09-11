@@ -158,3 +158,4 @@ if uploaded_file:
     #qdrant.add_texts(texts,metadatas=metadata)
     st.write("numero de chunks: ",len(texts))
     st.session_state.uploaded_file = uploaded_file
+     st.session_state.doc = document
