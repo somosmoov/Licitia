@@ -61,8 +61,8 @@ if st.session_state.uploaded_file:
         st.session_state.file_summary = st.session_state.file_name
         
     elif st.session_state.file_summary == st.session_state.file_name:
-        st.write("uploaded_file", st.session_state.uploaded_file)
-        st.write("File summary",st.session_state.file_summary)
+        #st.write("uploaded_file", st.session_state.uploaded_file)
+        st.write("Arquivo sumarizado",st.session_state.file_summary)
         st.write(" Sumario : ",st.session_state.summary)
     else:
         st.write(" Edital em análise: ", st.session_state.file_name)
