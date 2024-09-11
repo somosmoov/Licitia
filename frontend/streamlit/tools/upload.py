@@ -175,4 +175,5 @@ else:
         st.write("numero de chunks: ",len(texts))
         st.session_state.doc = document
         st.session_state.uploaded_file = uploaded_file
+        st.session_state.file_name = uploaded_file.name
 
