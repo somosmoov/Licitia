@@ -146,8 +146,7 @@ st.markdown("## 📝 Carregue o Edital a ser analisado")
 if 'uploaded_file' in st.session_state:
     st.write("Edital em análise:", st.session_state.file_name)
     uploaded_file = st.file_uploader( "Se desejar carrego o novo Edital a ser analisado",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
-    if uploaded_file:
-        st.write("Nome do arquivo:", st.session_state.file_name)
+    if st.session_state.file_name != uploaded_file.name
         document = trata_arquivo(uploaded_file)
         text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
         texts = text_splitter.split_text(document)
@@ -159,7 +158,6 @@ if 'uploaded_file' in st.session_state:
         st.write("numero de chunks: ",len(texts))
         st.session_state.doc = document
         st.session_state.uploaded_file = uploaded_file
-
 else:
     uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
     if uploaded_file:
