@@ -27,17 +27,16 @@ openai_api_key = st.secrets["api_openai"]
 client = OpenAI(api_key=openai_api_key)
 
 # Ask the user for a question via `st.text_area`.
-question = st.text_input(
-    "Faça um questionamento",
-    placeholder="Por exemplo: Pode fornecer um sumário?",
-    disabled=not uploaded_file,
-)
-
-if uploaded_file:
-
+#question = st.text_input(
+#    "Faça um questionamento",
+#    placeholder="Por exemplo: Pode fornecer um sumário?",
+#    disabled=not uploaded_file,
+#)
+question = " faça um sumario do edital"
+if st.session_state.uploaded_file:
     # Process the uploaded file and question.
     #document = uploaded_file.read().decode()
-    document = 
+    document = st.session_state.doc
     messages = [
         {
             "role": "user",
