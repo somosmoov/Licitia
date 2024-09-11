@@ -147,7 +147,7 @@ st.markdown("## 📝 Selecione os Documentos")
 # Let the user upload a file via `st.file_uploader`.
 uploaded_files = st.file_uploader("Selecione os Documentos a serem analisados!", 
                                   type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"),
-                                  accept_multiple_files=True)
+                                  accept_multiple_files= False) # True)
 for uploaded_file in uploaded_files:
     # Imprimir informações sobre o arquivo
     st.write("Nome do arquivo:", uploaded_file.name)
@@ -164,6 +164,6 @@ for uploaded_file in uploaded_files:
     metadata = []
     for i in range(0,len(texts)):
         metadata.append({"path":uploaded_file.name})
-        st.write("Chunk #:",i,' -- ',texts[i])
+        #st.write("Chunk #:",i,' -- ',texts[i])
         #qdrant.add_texts(texts,metadatas=metadata)
     st.write("numero de chunks: ",len(texts))
