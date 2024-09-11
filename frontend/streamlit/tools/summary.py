@@ -6,8 +6,7 @@ from azure.keyvault.secrets import SecretClient
 # Ask user for their OpenAI API key via `st.text_input`.
 # Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
-#openai_api_key = st.text_input("OpenAI API Key", type="password")
-openai.api_key = st.secrets["OPENAI_KEY"]
+openai_api_key = st.secrets["OPENAI_KEY"]
 
 # Defina a URL do seu Key Vault
 #key_vault_url = KEY_VAULT_URL
@@ -16,16 +15,8 @@ openai.api_key = st.secrets["OPENAI_KEY"]
 #credential = DefaultAzureCredential()
 #client = SecretClient(vault_url=key_vault_url, credential=credential)
 
-# Acesse o segredo
-#secret_name = "OpenAI-API-Key"
-#retrieved_secret = client.get_secret(secret_name)
-#st.write("A chave da API da OpenAI é:", retrieved_secret.value)
-#st.write("VALOR recuperado:", retrieved_secret)
-
 # Create an OpenAI client.
 #client = OpenAI(api_key=retrieved_secret.value)
-# Chamada da função de configuração
-#setup_openai_api()
 client = OpenAI(api_key=openai_api_key)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
 #if st.session_state.uploaded_file:
