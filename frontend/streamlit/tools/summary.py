@@ -60,6 +60,7 @@ if st.session_state.uploaded_file:
         st.session_state.summary = stream
 elif st.session_state.file_summary == st.session_state.file_name:
     st.write("uploaded_file", st.session_state.uploaded_file)
+    st.write("File summary",st.session_state.file_summary)
     st.write_stream(stream)
 else: 
     st.write(" Carregue o Edital para análise")
