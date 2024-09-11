@@ -16,7 +16,7 @@ def logout():
         st.rerun()
 
 # Inicializa variaveis de status
- st.session_state['uploaded_file'] = ""
+ st.session_state['uploaded_file'] = " "
 
 login_page = st.Page(login, title="Log in", icon=":material/login:")
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
