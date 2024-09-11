@@ -143,9 +143,9 @@ def get_question():
 # Streamlit UI
 #st.title("📝 Selecione os documentos")
 st.markdown("## 📝 Carregue o Edital a ser analisado")
-if 'uploaded_file' not in st.session_state:
+#if 'uploaded_file' not in st.session_state:
     # Let the user upload a file via `st.file_uploader`.
-    uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
+uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
 #if uploaded_file:
     st.write("Nome do arquivo:", uploaded_file.name)
     document = trata_arquivo(uploaded_file)
@@ -157,4 +157,4 @@ if 'uploaded_file' not in st.session_state:
     #st.write("Chunk #:",i,' -- ',texts[i])
     #qdrant.add_texts(texts,metadatas=metadata)
     st.write("numero de chunks: ",len(texts))
-    st.session_state['uploaded_file'] = uploaded_file
+    st.session_state.uploaded_file = uploaded_file
