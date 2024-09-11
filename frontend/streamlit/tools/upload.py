@@ -145,19 +145,22 @@ def get_question():
 st.markdown("## 📝 Selecione os Documentos")
 
 # Let the user upload a file via `st.file_uploader`.
-uploaded_file = st.file_uploader("Selecione os Documentos a serem analisados!", 
-                                  type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"),
-                                  accept_multiple_files= False) # True)
+#uploaded_file = st.file_uploader("Selecione os Documentos a serem analisados!", 
+#                                  type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"),
+#                                  accept_multiple_files= False) # True)
+# Let the user upload a file via `st.file_uploader`.
+uploaded_file = st.file_uploader("Carregue o Edital a ser analisado!", type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
 
 # Imprimir informações sobre o arquivo
 #st.write("Nome do arquivo:", uploaded_file.name)
 #st.write("Tipo de conteúdo:", uploaded_file.type)
 #st.write("Tamanho do arquivo:", uploaded_file.size, "bytes")
-document = trata_arquivo(uploaded_file)
+if uploaded_file and question:
+    document = trata_arquivo(uploaded_file)
+#document = trata_arquivo(uploaded_file)
     #st.write(type(document))
     #st.write(document.keys())
     #st.write(document)
-            
 # Chunking
 text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
 texts = text_splitter.split_text(document)
