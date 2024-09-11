@@ -62,7 +62,7 @@ if st.session_state.uploaded_file:
     elif st.session_state.file_summary == st.session_state.file_name:
         st.write("uploaded_file", st.session_state.uploaded_file)
         st.write("File summary",st.session_state.file_summary)
-        st.write_stream(st.session_state.summary)
+        st.write_stream(" Sumario : ",st.session_state.summary)
     else:
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
