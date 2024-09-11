@@ -34,8 +34,8 @@ client = OpenAI(api_key=openai_api_key)
 #)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
 if st.session_state.uploaded_file:
-    st.write("uploaded_file", st.session_state.uploaded_file)
-    st.write("file_summary", st.session_state.file_summary)
+    #st.write("uploaded_file", st.session_state.uploaded_file)
+    #st.write("file_summary", st.session_state.file_summary)
     if "file_summary" not in st.session_state:
         # Process the uploaded file and question.
         #document = uploaded_file.read().decode()
