@@ -54,8 +54,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Configuração para a streaming
-        stream = openai.ChatCompletion.create(
-            #model="gpt-3.5-turbo",
+        stream = openai.Completion.create(
             model="gpt-4-0613",
             messages=messages,
             stream=True,
@@ -87,7 +86,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
-        stream = openai.ChatCompletion.create(
+        stream = openai.Completion.create(
             #model="gpt-3.5-turbo",
             model="gpt-4-0613",
             messages=messages,
