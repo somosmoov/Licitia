@@ -33,7 +33,7 @@ client = OpenAI(api_key=openai_api_key)
 #    disabled=not uploaded_file,
 #)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
-if st.session_state.uploaded_file:
+if st.session_state.uploaded_file & (st.session_state.file_summary != st.session_state.file_name) :
     # Process the uploaded file and question.
     #document = uploaded_file.read().decode()
     st.write(" Edital em análise: ", st.session_state.file_name)
@@ -55,5 +55,9 @@ if st.session_state.uploaded_file:
 
     # Stream the response to the app using `st.write_stream`.
     st.write_stream(stream)
+    st.session_state.file_summary = st.session_state.file_name
+    st.session_state.summary = stream
+elif:
+     st.write_stream(stream)
 else: 
-    st.write(" Carregue o Edial para análise")
+    st.write(" Carregue o Edital para análise")
