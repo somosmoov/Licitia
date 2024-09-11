@@ -144,7 +144,7 @@ def get_question():
 #st.title("📝 Selecione os documentos")
 st.markdown("## 📝 Carregue o Edital a ser analisado")
 if 'uploaded_file' in st.session_state:
-    st.write("Edital em análise:", uploaded_file.name)
+    st.write("Edital em análise:", st.session_state.file_name)
     uploaded_file = st.file_uploader( "Se desejar carrego o novo Edital a ser analisado",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
     if uploaded_file:
         st.write("Nome do arquivo:", st.session_state.file_name)
