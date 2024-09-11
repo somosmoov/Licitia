@@ -158,6 +158,7 @@ if 'uploaded_file' in st.session_state:
         st.write("numero de chunks: ",len(texts))
         st.session_state.doc = document
         st.session_state.uploaded_file = uploaded_file
+        st.session_state.file_name = uploaded_file.name
 else:
     uploaded_file = st.file_uploader( "",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
     if uploaded_file:
