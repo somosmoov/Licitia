@@ -20,7 +20,7 @@ openai_api_key = st.secrets["OPENAI_KEY"]
 client = OpenAI(api_key=openai_api_key)
 question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
 #if st.session_state.uploaded_file:
-if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
+if 'uploaded_file' in st.session_state :
     #st.write("uploaded_file", st.session_state.uploaded_file)
     #st.write("file_summary", st.session_state.file_summary)
     if "file_summary" not in st.session_state:
@@ -44,7 +44,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         
         # Inicializando o resumo na sessão
         st.session_state.summary = ""
-        st.write(completion.choices[0].message)
+        st.write(completion.choices[0].message.content)
         #st.write(dict(completion).get('usage'))
         #st.write(completion.model_dump_json(indent=2))
                
@@ -70,10 +70,8 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
             messages=messages,
             #stream=True,
         )
-        # Inicializando o resumo na sessão
-        st.session_state.summary = ""
-        # Iterando sobre a stream e acumulando as mensagens
-        st.write(completion.choices[0].message)
+       
+        st.write(completion.choices[0].message.content)
       
         st.write(st.session_state.summary)
         
