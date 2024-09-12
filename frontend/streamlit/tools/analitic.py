@@ -38,7 +38,7 @@ instructions = (
     "Se o documento não contiver as informações necessárias para responder a esta questão, "
     "basta escrever: Informação não identificada no documento. "
     "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
-    "Use o seguinte formato para citar passagens relevantes: {\" \"...}"
+    "Use o seguinte formato para citar passagens relevantes: {\"Ref \":...}"
 )
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
