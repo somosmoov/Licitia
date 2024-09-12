@@ -73,6 +73,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         # Inicializando o resumo na sessão
         st.session_state.summary = ""
         # Iterando sobre a stream e acumulando as mensagens
+        st.write(completion.choices[0].message)
       
         st.write(st.session_state.summary)
         
