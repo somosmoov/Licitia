@@ -19,7 +19,7 @@ openai_api_key = st.secrets["OPENAI_KEY"]
 #client = OpenAI(api_key=retrieved_secret.value)
 client = OpenAI(api_key=openai_api_key)
 question = " Analise o edital fornecido e responda aos seguintes questionamentos: Tem conta vinculada?, Solicita planilha de custos e formação de preços?, Qual o modo de disputa?, Qual o valor orçado?, Tem salário mínimo?, Edital se baseia em qual a lei?, Qual a vigência?, Quais documentos para faturamento?, Pede declaração de Contratos firmados?, Quais os documentos para faturamento?, Quaisosperfis? "
-instructions = "Você receberá um documento e uma pergunta. Sua tarefa é responder à pergunta usando apenas o documento fornecido e citar a(s) passagem(s) do documento usado para responder à pergunta. Se o documento não contiver as informações necessárias para responder a esta questão, basta escrever: “Informação insuficiente”. Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. Use o seguinte formato para citar passagens relevantes ({"citação":…})"
+instructions = f"Você receberá um documento e uma pergunta. Sua tarefa é responder à pergunta usando apenas o documento fornecido e citar a(s) passagem(s) do documento usado para responder à pergunta. Se o documento não contiver as informações necessárias para responder a esta questão, basta escrever: Informação insuficiente. Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. Use o seguinte formato para citar passagens relevantes ({"citação":…})"
 messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
