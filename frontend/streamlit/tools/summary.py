@@ -71,7 +71,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
-        stream = client.completions.create(
+        stream = client.chat.completions.create(
             #model="gpt-3.5-turbo",
             model="gpt-4o-mini",
             messages=messages,
