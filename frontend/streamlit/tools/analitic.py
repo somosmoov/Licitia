@@ -28,11 +28,6 @@ instructions = (
     "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
     "Use o seguinte formato para citar passagens relevantes: {\"citação\": ...}"
 )
-messages = [
-            {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
-            {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": "     ."}
-        ]
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
     #st.write("uploaded_file", st.session_state.uploaded_file)
@@ -43,6 +38,11 @@ if 'uploaded_file' in st.session_state :
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
         # Generate an answer using the OpenAI API.
+        messages = [
+            {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
+            {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
+            {"role": "assistant", "content": "     ."}
+        ]
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
@@ -59,6 +59,11 @@ if 'uploaded_file' in st.session_state :
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
         # Generate an answer using the OpenAI API.
+        messages = [
+            {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
+            {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
+            {"role": "assistant", "content": "     ."}
+        ]
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
