@@ -155,7 +155,8 @@ if 'uploaded_file' in st.session_state:
             metadata.append({"path":uploaded_file.name})
         #st.write("Chunk #:",i,' -- ',texts[i])
         #qdrant.add_texts(texts,metadatas=metadata)
-        st.write("numero de chunks: ",len(texts))
+        #st.write("numero de chunks: ",len(texts))
+        st.write("Documento carregado, selecione a opção desejada no menu lateral!")
         st.session_state.doc = document
         st.session_state.uploaded_file = uploaded_file
         st.session_state.file_name = uploaded_file.name
