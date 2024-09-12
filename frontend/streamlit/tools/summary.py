@@ -36,7 +36,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Configuração para a streaming
-        completion = client.completions.create(
+        completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
             #stream=True,
@@ -44,7 +44,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         
         # Inicializando o resumo na sessão
         st.session_state.summary = ""
-        st.write(completion.choices[0].text)
+        st.write(completion.choices[0].message)
         st.write(dict(completion).get('usage'))
         st.write(completion.model_dump_json(indent=2))
         
