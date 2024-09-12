@@ -40,16 +40,10 @@ if 'uploaded_file' in st.session_state :
             model="gpt-4o-mini",
             messages=messages,
             #stream=True,
-        )
-        
-        # Inicializando o resumo na sessão
-        st.session_state.summary = ""
-        st.write(completion.choices[0].message.content)
-        #st.write(dict(completion).get('usage'))
-        #st.write(completion.model_dump_json(indent=2))
-               
-        st.session_state.file_summary = st.session_state.file_name
-        
+        )      
+        st.session_state.summary = completion.choices[0].message.content # https://platform.openai.com/docs/guides/chat-completions/response-format
+        st.write(st.session_state.summary)
+        st.session_state.file_summary = st.session_state.file_name        
     elif st.session_state.file_summary == st.session_state.file_name:
         #st.write("uploaded_file", st.session_state.uploaded_file)
         st.write("Arquivo sumarizado",st.session_state.file_summary)
@@ -70,11 +64,8 @@ if 'uploaded_file' in st.session_state :
             messages=messages,
             #stream=True,
         )
-       
-        st.write(completion.choices[0].message.content)
-      
-        st.write(st.session_state.summary)
-        
+        st.session_state.summary = completion.choices[0].message.content # https://platform.openai.com/docs/guides/chat-completions/response-format
+        st.write(st.session_state.summary)               
         st.session_state.file_summary = st.session_state.file_name    
 else: 
     st.write(" Carregue o Edital para análise")
