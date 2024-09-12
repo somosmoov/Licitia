@@ -18,7 +18,31 @@ openai_api_key = st.secrets["OPENAI_KEY"]
 # Create an OpenAI client.
 #client = OpenAI(api_key=retrieved_secret.value)
 client = OpenAI(api_key=openai_api_key)
-question = " faça um sumario do edital indicando apenas o contratante e o objeto do mesmo"
+
+question = (
+    "Atue como um expert em editais publicos, analise o edital fornecido e responda aos seguintes questionamentos:"
+    "Qual é o Edital?, "
+    "Qual o processo?,"
+    "Modalidade?, "
+    "Contratante ou interessado?, "
+    "Descreva o objeto de forma objetiva, "
+    "Valor da contratação,"
+    "data de abertura?,"
+    "horario de abertura?,"
+    "criterio de julgamento?,"
+    "PREFERÊNCIA ME/EPP/EQUIPARADAS",
+    "modo de disputa? ",
+    " endereço para entrega das propostas"    
+)
+instructions = (
+    "Você receberá um documento e uma pergunta. "
+    "Sua tarefa é responder à pergunta usando apenas o documento fornecido "
+    "e citar a(s) passagem(s) do documento usado para responder à pergunta. "
+    "Se o documento não contiver as informações necessárias para responder a esta questão, "
+    "basta escrever: Informação não identificada no documento. "
+    "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
+    "Use o seguinte formato para citar passagens relevantes: {\"Ref \":...}"
+)
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
     #st.write("uploaded_file", st.session_state.uploaded_file)
@@ -29,10 +53,9 @@ if 'uploaded_file' in st.session_state :
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
         messages = [
-            {
-                "role": "user",
-                "content": f"Here's a document: {document} \n\n---\n\n {question}",
-            }
+            {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
+            {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
+            {"role": "assistant", "content": "     ."}
         ]
         #st.write(document)
         # Configuração para a streaming
@@ -52,10 +75,9 @@ if 'uploaded_file' in st.session_state :
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
         messages = [
-            {
-                "role": "user",
-                "content": f"Here's a document: {document} \n\n---\n\n {question}",
-            }
+            {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
+            {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
+            {"role": "assistant", "content": "     ."}
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
