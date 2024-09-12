@@ -47,13 +47,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         st.write(completion.choices[0].message)
         st.write(dict(completion).get('usage'))
         st.write(completion.model_dump_json(indent=2))
-        
-        # Iterando sobre a stream e acumulando as mensagens
-        for chunk in completion:
-            if 'choices' in chunk and len(chunk['choices']) > 0:
-                delta = chunk['choices'][0]['delta'].get('content', '')
-                st.session_state.summary += delta
-                st.write(st.session_state.summary)
+               
         st.session_state.file_summary = st.session_state.file_name
         
     elif st.session_state.file_summary == st.session_state.file_name:
@@ -71,20 +65,16 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
-        stream = client.chat.completions.create(
-            #model="gpt-3.5-turbo",
+        completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
-            stream=True,
+            #stream=True,
         )
         # Inicializando o resumo na sessão
         st.session_state.summary = ""
         # Iterando sobre a stream e acumulando as mensagens
-        for chunk in stream:
-            if 'choices' in chunk and len(chunk['choices']) > 0:
-                delta = chunk['choices'][0]['delta'].get('content', '')
-                st.session_state.summary += delta
-                st.write(st.session_state.summary)
+      
+        st.write(st.session_state.summary)
         
         st.session_state.file_summary = st.session_state.file_name    
 else: 
