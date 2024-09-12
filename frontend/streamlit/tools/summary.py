@@ -36,7 +36,7 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         ]
         #st.write(document)
         # Configuração para a streaming
-        completion = client.completions.create(
+        completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
             stream=True,
