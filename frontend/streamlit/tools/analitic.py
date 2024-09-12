@@ -81,8 +81,8 @@ if 'uploaded_file' in st.session_state :
             messages=messages,
             #stream=True,
         )
-        st.session_state.summary = completion.choices[0].message.content # https://platform.openai.com/docs/guides/chat-completions/response-format
-        st.write(st.session_state.summary)               
-        st.session_state.file_summary = st.session_state.file_name    
+        st.session_state.analitic = completion.choices[0].message.content # https://platform.openai.com/docs/guides/chat-completions/response-format
+        st.write(st.session_state.analitic)               
+        st.session_state.file_analitic = st.session_state.file_name    
 else: 
     st.write(" Carregue o Edital para análise")
