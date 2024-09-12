@@ -26,8 +26,8 @@ logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 #alerts = st.Page("reports/alerts.py", title="Alertas", icon=":material/notification_important:")#, default=True)
 
 upload = st.Page("tools/upload.py", title="Carrega Edital", icon=":material/upload:", default=True)
-summary = st.Page("tools/summary.py", title="Sumário do Edital", icon=":material/search:")
-analitic = st.Page("tools/analitic.py", title="Análise detalhada", icon=":material/search:")#, default=True)
+summary = st.Page("tools/summary.py", title="Sumário", icon=":material/search:")
+analitic = st.Page("tools/analitic.py", title="Análise ", icon=":material/search:")#, default=True)
 history = st.Page("tools/history.py", title="Historico", icon=":material/history:")#, default=True)
 #qa = st.Page("tools/qa.py", title="Sumario do Edital", icon=":material/upload:")#, default=True)
 
@@ -35,7 +35,7 @@ if st.session_state.logged_in:
     pg = st.navigation(
         {
             "Acesso": [logout_page],
-            "Ferramentas": [upload, summary, analitic, history],
+            "Ferramentas": [upload, summary, analitic],# history],
             #"Relatórios": [bugs, alerts],
             
         }
