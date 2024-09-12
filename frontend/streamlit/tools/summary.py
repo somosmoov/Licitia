@@ -45,8 +45,8 @@ if 'uploaded_file' in st.session_state and st.session_state.uploaded_file:
         # Inicializando o resumo na sessão
         st.session_state.summary = ""
         st.write(completion.choices[0].message)
-        st.write(dict(completion).get('usage'))
-        st.write(completion.model_dump_json(indent=2))
+        #st.write(dict(completion).get('usage'))
+        #st.write(completion.model_dump_json(indent=2))
                
         st.session_state.file_summary = st.session_state.file_name
         
