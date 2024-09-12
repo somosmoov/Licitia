@@ -65,8 +65,8 @@ if 'uploaded_file' in st.session_state :
         st.session_state.file_analitic = st.session_state.file_name        
     elif st.session_state.file_analitic == st.session_state.file_name:
         #st.write("uploaded_file", st.session_state.uploaded_file)
-        st.write("Arquivo sumarizado",st.session_state.file_analitic)
-        st.write("Sumario: ", st.session_state.analitic)
+        st.write(" Edital em análise: ", st.session_state.file_name)
+        st.write(st.session_state.analitic)
     else:
         st.write(" Edital em análise: ", st.session_state.file_name)
         document = st.session_state.doc
