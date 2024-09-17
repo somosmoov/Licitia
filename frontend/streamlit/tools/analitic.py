@@ -43,8 +43,8 @@ instructions = (
     "Se o documento não contiver as informações necessárias para responder a esta questão, "
     "basta escrever: Informação não identificada no documento. "
     "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
-    "quanto referenciar a quantias de dinheiro considere a moeda Real e seu simbolo R$"
-    "Use o seguinte formato para citar passagens relevantes: {\"Item\": ...}"  
+    "Use o seguinte formato para citar passagens relevantes: {\"Ref \":...}"
+    "quanto referenciar a quantias de dinheiro considera a moeda Real e seu simbolo R$" 
 )
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
