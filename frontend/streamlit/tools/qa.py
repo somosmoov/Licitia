@@ -8,17 +8,23 @@ import requests
 import openpyxl
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
+from PyPDF2 import PdfReader
 
 KEY_VAULT_URL = "https://keyvaultdesen.vault.azure.net/"
 
 # Função para ler arquivos PDF
 def read_pdf(file):
     try:
+        '''
         document = fitz.open(stream=file.read(), filetype="pdf")
         text = ""
         for page in document:
             text += page.get_text()
+        return text '''
+        pdf_reader = PdfReader(file)
+        text =  "".join(page.extract_text() for page in pdf_reader.pages)
         return text
+
     except Exception as e:
         st.error(f"Erro ao ler arquivo PDF: {e}")
         return ""
