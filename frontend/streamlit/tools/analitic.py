@@ -57,7 +57,7 @@ if 'uploaded_file' in st.session_state :
         messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": " Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares e quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo R$"}
+            {"role": "assistant", "content": " Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares e quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo"}
         ]
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
@@ -78,7 +78,7 @@ if 'uploaded_file' in st.session_state :
         messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": "Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares, quanto referenciar a moeda utilize o simbolo R$ do Real" }
+            {"role": "assistant", "content": "Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares, quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo" }
         ]
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
