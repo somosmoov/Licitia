@@ -11,3 +11,5 @@ azure-keyvault-secrets
 langchain_text_splitters
 tiktoken
 PyPDF2
+pymupdf4llm
+chardet
