@@ -10,7 +10,7 @@ from azure.keyvault.secrets import SecretClient
 # Sete a URL do seu Key Vault
 KEY_VAULT_URL = "https://keyvaultdesen.vault.azure.net/"
 # Defina a URL do seu Key Vault
-key_vault_url = KEY_VAULT_URL
+key_vault_url = KEY_VAULT_URL 
 
 # Crie um cliente para acessar o Key Vault
 credential = DefaultAzureCredential()
