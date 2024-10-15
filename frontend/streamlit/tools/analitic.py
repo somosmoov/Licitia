@@ -43,7 +43,6 @@ instructions = (
     "Se o documento não contiver as respostas aos questionamentos relacione o respectivo questionamento com a resposta: informação não identificada no documento. "
     "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
     "Use o seguinte formato para citar passagens relevantes: {\"Ref \":...}"
-    "quanto referenciar a quantias de dinheiro considera a moeda Real e seu simbolo R$" 
 )
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
@@ -58,7 +57,7 @@ if 'uploaded_file' in st.session_state :
         messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": " Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares"}
+            {"role": "assistant", "content": " Entenda por declaração de contratos firmados como necessidade de apresentar atestados tecnicos de fornecimentos similares e quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo R$"}
         ]
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
