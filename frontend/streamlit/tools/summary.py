@@ -44,10 +44,9 @@ instructions = (
     "Você receberá um documento e uma pergunta. "
     "Sua tarefa é responder à pergunta usando apenas o documento fornecido "
     "e citar a(s) passagem(s) do documento usado para responder à pergunta. "
-    ""Se o documento não contiver as respostas aos questionamentos relacione o respectivo questionamento com a resposta: informação não identificada no documento. " "
+    "Se o documento não contiver as respostas aos questionamentos relacione o respectivo questionamento com a resposta: informação não identificada no documento."
     "Se for fornecida uma resposta à pergunta, ela deverá ser anotada com uma citação. "
     "Use o seguinte formato para citar passagens relevantes: {\"Ref \":...}"
-    "quanto referenciar a quantias de dinheiro considera a moeda Real e seu simbolo R$"
 )
 #if st.session_state.uploaded_file:
 if 'uploaded_file' in st.session_state :
@@ -61,7 +60,7 @@ if 'uploaded_file' in st.session_state :
         messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": " quanto referenciar a moeda utilize o simbolo R$ do Real"}
+            {"role": "assistant", "content": "quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo R$"}
         ]
         #st.write(document)
         # Configuração para a streaming
