@@ -12,13 +12,13 @@ import pymupdf4llm
 # Função para ler arquivos PDF
 def read_pdf(file):
     try:
-        text = pymupdf4llm.to_markdown(file)
-        '''
+        #text = pymupdf4llm.to_markdown(file)
+        
         document = fitz.open(stream=file.read(), filetype="pdf")
         text = ""
         for page in document:
             text += page.get_text()
-        '''
+        
         return text        
     except Exception as e:
         st.error(f"Erro ao ler arquivo PDF: {e}")
