@@ -6,6 +6,7 @@ import mammoth
 import requests
 import openpyxl
 from langchain_text_splitters import TokenTextSplitter
+import charlet
 
 # Função para ler arquivos PDF
 def read_pdf(file):
