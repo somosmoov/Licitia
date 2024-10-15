@@ -7,15 +7,19 @@ import requests
 import openpyxl
 from langchain_text_splitters import TokenTextSplitter
 import chardet
+import pymupdf4llm
 
 # Função para ler arquivos PDF
 def read_pdf(file):
     try:
+        text = pymupdf4llm.to_markdown(pdf_file_path,write_images=True)
+        '''
         document = fitz.open(stream=file.read(), filetype="pdf")
         text = ""
         for page in document:
             text += page.get_text()
-        return text
+        '''
+        return text        
     except Exception as e:
         st.error(f"Erro ao ler arquivo PDF: {e}")
         return ""
