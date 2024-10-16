@@ -82,7 +82,7 @@ if 'uploaded_file' in st.session_state :
         messages = [
             {"role": "system", "content": f"Você é um especialista em editais públicos brasileiros para tecnologia da informação {instructions} "},
             {"role": "user", "content": f"Here's a document: {document} \n\n---\n\n {question}"},
-            {"role": "assistant", "content": " "quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo"}
+            {"role": "assistant", "content": "quando referenciar a quantias em dinheiro utilize o Real como moeda e seu simbolo"}
         ]
         #st.write(document)
         # Generate an answer using the OpenAI API.
