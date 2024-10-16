@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.markdown("# LICITIA - Analisador de Editais Moov - versão Beta🎈")
+st.markdown("# LicitIA - Analisador de Editais Moov - versão Beta🎈")
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
