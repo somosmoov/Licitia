@@ -153,11 +153,11 @@ if 'uploaded_file' in st.session_state:
     uploaded_file = st.file_uploader( "Se desejar carrego o novo Edital a ser analisado",type=("pdf", "docx", "doc", "ppt", "pptx", "txt", "md","xls","xlsx","xlsm","xltx","xltm"))
     if uploaded_file :
         document = trata_arquivo(uploaded_file)
-        text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
-        texts = text_splitter.split_text(document)
-        metadata = []
-        for i in range(0,len(texts)):
-            metadata.append({"path":uploaded_file.name})
+        #text_splitter = TokenTextSplitter(chunk_size=1024, chunk_overlap=102)
+        #texts = text_splitter.split_text(document)
+        #metadata = []
+        #for i in range(0,len(texts)):
+        #    metadata.append({"path":uploaded_file.name})
         #st.write("Chunk #:",i,' -- ',texts[i])
         #qdrant.add_texts(texts,metadatas=metadata)
         #st.write("numero de chunks: ",len(texts))
